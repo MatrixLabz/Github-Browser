@@ -4,9 +4,16 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "repo_details")
+@Entity(tableName = "repo_table")
 data class ItemsEntity(
-    @PrimaryKey
+
     val repoName: String,
-    val repoOwner: String
-)
+    val repoOwner: String,
+    val repoDescription: String,
+
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = -1
+
+    ) {
+
+}

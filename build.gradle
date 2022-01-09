@@ -2,6 +2,7 @@
 buildscript {
 
     ext.activity_ktx_version = "1.2.3"
+    ext.nav_version = "2.4.0-alpha02"
 
     // dagger hilt
     ext.dagger_hilt_version = "2.38.1"
@@ -17,6 +18,7 @@ buildscript {
         classpath "com.android.tools.build:gradle:7.0.4"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$dagger_hilt_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

@@ -8,37 +8,39 @@
 
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/repoOwnerEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="204dp"
+        android:hint="Owner"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/repoNameEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
+        android:hint="Repository name"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/repoOwnerEdit"
         app:layout_constraintVertical_bias="0.057" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="144dp"
-        android:text="SUBMIT"
+        android:text="Add"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/editText1"
+        app:layout_constraintEnd_toEndOf="@+id/repoOwnerEdit"
         app:layout_constraintHorizontal_bias="0.903"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText1" />
+        app:layout_constraintTop_toBottomOf="@+id/repoNameEdit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

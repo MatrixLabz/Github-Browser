@@ -18,5 +18,10 @@
         android:id="@+id/addRepoFragment"
         android:name="com.matrix.githubbrowser.presentation.add.AddRepoFragment"
         android:label="Add Repo"
-        tools:layout="@layout/fragment_add_repo" />
+        tools:layout="@layout/fragment_add_repo" >
+
+        <action
+            android:id="@+id/action_addRepoFragment_to_mainFragment2"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>

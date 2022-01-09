@@ -3,7 +3,9 @@ plugins {
     id 'kotlin-android'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
 }
+
 
 android {
     compileSdk 31
@@ -45,6 +47,13 @@ android {
         viewBinding true
     }
 
+
+
+
+    sourceSets {
+        getByName("main").java.srcDirs("build/generated/source/navigation-args")
+    }
+
     kapt {
         javacOptions {
             // These options are normally set automatically via the Hilt Gradle plugin, but we
@@ -78,8 +87,9 @@ dependencies {
     implementation "androidx.room:room-ktx:2.4.0"
 
     // Jetpack Navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 
     // Retrofit and gson
     implementation 'com.google.code.gson:gson:2.8.8'
