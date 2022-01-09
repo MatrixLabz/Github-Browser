@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "37df4643-2c06-4443-8bce-3c9ed8d35fdb",
+		"name": "Github Browser APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Repository ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github.v3+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.github.com/repos/:owner/:repo",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						":owner",
+						":repo"
+					],
+					"variable": [
+						{
+							"key": "owner",
+							"value": "jquery"
+						},
+						{
+							"key": "repo",
+							"value": "jquery"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get branches",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github.v3+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.github.com/repos/:owner/:repo/branches",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						":owner",
+						":repo",
+						"branches"
+					],
+					"variable": [
+						{
+							"key": "owner",
+							"value": "jquery"
+						},
+						{
+							"key": "repo",
+							"value": "jquery"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get commits in a branch",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github.v3+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.github.com/repos/:owner/:repo/commits?sha=main",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						":owner",
+						":repo",
+						"commits"
+					],
+					"query": [
+						{
+							"key": "sha",
+							"value": "main"
+						}
+					],
+					"variable": [
+						{
+							"key": "owner",
+							"value": "jquery"
+						},
+						{
+							"key": "repo",
+							"value": "jquery"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get open issues of a repository",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github.v3+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.github.com/repos/:owner/:repo/issues?state=open",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						":owner",
+						":repo",
+						"issues"
+					],
+					"query": [
+						{
+							"key": "state",
+							"value": "open"
+						}
+					],
+					"variable": [
+						{
+							"key": "owner",
+							"value": "jquery"
+						},
+						{
+							"key": "repo",
+							"value": "jquery"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
