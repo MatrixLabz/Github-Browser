@@ -1,8 +1,8 @@
-package com.matrix.githubbrowser.domain.repository
+package com.matrix.githubbrowser.domain.room.repository
 
 import androidx.lifecycle.LiveData
 import com.matrix.githubbrowser.data.models.ItemsEntity
-import com.matrix.githubbrowser.domain.dao.ItemsDao
+import com.matrix.githubbrowser.domain.room.dao.ItemsDao
 import javax.inject.Inject
 
 class AddItemRepository @Inject constructor(

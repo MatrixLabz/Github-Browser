@@ -1,4 +1,4 @@
-package com.matrix.githubbrowser.domain.dao
+package com.matrix.githubbrowser.domain.room.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
