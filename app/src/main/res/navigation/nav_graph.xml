@@ -38,5 +38,11 @@
         <argument
             android:name="repoDescription"
             app:argType="string" />
+        <argument
+            android:name="repoOwner"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_detailsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

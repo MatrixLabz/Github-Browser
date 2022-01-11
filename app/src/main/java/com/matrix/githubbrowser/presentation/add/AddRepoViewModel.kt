@@ -23,8 +23,6 @@ class AddRepoViewModel @Inject constructor(
     val res: LiveData<Resource<GetRepoModel>>
         get() = _res
 
-
-
     fun getRepo(
         ownerName: String,
         repoName: String
@@ -40,8 +38,5 @@ class AddRepoViewModel @Inject constructor(
             }
         }
     }
-
-
-    private fun <T : Any?> MutableLiveData<T>.default(initialValue: T) = apply { setValue(initialValue) }
 
 }

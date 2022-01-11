@@ -11,5 +11,7 @@ interface ApiService {
     @GET
     suspend fun getRepo(@Url url: String): Response<GetRepoModel>
 
+    @GET
+    suspend fun getIssues(@Url url: String): Response<GetRepoModel>
 
 }

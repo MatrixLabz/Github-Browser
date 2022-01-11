@@ -1,30 +1,22 @@
 package com.matrix.githubbrowser.presentation.main
 
-import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
-import android.view.*
-import android.widget.ListAdapter
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.matrix.githubbrowser.R
 import com.matrix.githubbrowser.databinding.FragmentMainBinding
 import com.matrix.githubbrowser.presentation.adapters.ItemsListAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import com.google.android.material.snackbar.Snackbar
-
-import androidx.recyclerview.widget.RecyclerView
-
-import androidx.annotation.NonNull
-
-import androidx.recyclerview.widget.ItemTouchHelper
-
-
-
 
 
 @AndroidEntryPoint
@@ -91,7 +83,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
         itemsListAdapter.setOnItemClickListener {
             // Add logic for clicking a repository
-            val action = MainFragmentDirections.actionMainFragmentToDetailsFragment(it.repoName, it.repoDescription)
+            val action = MainFragmentDirections.actionMainFragmentToDetailsFragment(it.repoName, it.repoDescription, it.repoOwner)
             findNavController().navigate(action)
         }
     }

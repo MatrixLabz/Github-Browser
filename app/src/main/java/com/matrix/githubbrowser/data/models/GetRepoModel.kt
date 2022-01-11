@@ -12,9 +12,9 @@ data class GetRepoModel(
 
     @SerializedName("description")
     @Expose
-    val description: String
-) {
+    val description: String,
 
-
-
-}
+    @SerializedName("open_issues")
+    @Expose
+    val openIssues: String
+)
