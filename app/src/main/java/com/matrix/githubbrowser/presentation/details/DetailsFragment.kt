@@ -41,6 +41,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
     private val args: DetailsFragmentArgs by navArgs()
     private val addRepoViewModel: AddRepoViewModel by viewModels()
     private val viewModel: MainViewModel by viewModels()
+    private var countIssue = "0"
 
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,6 +63,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
                             if (res.data?.openIssues != "0"){
                                 binding.issuesBtn.text = "Issues (${res.data?.openIssues})"
                             }
+                            countIssue = res.data?.openIssues.toString()
                             Log.d("Issues", "Issues ${res.data?.openIssues}")
                         }
                     }
@@ -84,8 +86,23 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
         }
 
         binding.issuesBtn.setOnClickListener {
-            val action = DetailsFragmentDirections.actionDetailsFragmentToIssuesFragment(args.itemsEntity.repoName, args.itemsEntity.repoOwner)
-            findNavController().navigate(action)
+            if (countIssue != "0") {
+                val action = DetailsFragmentDirections.actionDetailsFragmentToIssuesFragment(
+                    args.itemsEntity.repoName,
+                    args.itemsEntity.repoOwner
+                )
+                findNavController().navigate(action)
+            } else {
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle("No issues found.")
+                    .setMessage("There are no issues! Add a repo which has issues.")
+                    .setNegativeButton(
+                        "Cancel"
+                    ) { dialogInterface, i ->
+                        dialogInterface.dismiss()
+                    }
+                    .show()
+            }
         }
 
     }

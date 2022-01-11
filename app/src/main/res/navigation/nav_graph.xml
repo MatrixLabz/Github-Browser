@@ -59,7 +59,7 @@
     <fragment
         android:id="@+id/branchFragment"
         android:name="com.matrix.githubbrowser.presentation.details.branches.BranchFragment"
-        android:label="fragment_branch"
+        android:label="Branches"
         tools:layout="@layout/fragment_branch" >
         <argument
             android:name="repoName"

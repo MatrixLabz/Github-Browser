@@ -14,7 +14,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="204dp"
         android:layout_marginEnd="20dp"
-        android:hint="Owner"
+        android:hint="Owner name"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
