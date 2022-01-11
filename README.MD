@@ -35,6 +35,9 @@ Pick any of your favorite github repository and create a mini android app showin
 
 - [Dagger Hilt](https://dagger.dev/hilt/) - a dependency injection library for Android
 - [Retrofit](https://square.github.io/retrofit/) - a type-safe HTTP client for Android and Java
+- [Glide](https://github.com/bumptech/glide) - a fast and efficient open source media management and
+  image loading framework for Android
+- [CircleImageView](https://github.com/hdodenhof/CircleImageView) - a fast circular ImageView perfect for profile images.
 
 ### Test Libraries
 
