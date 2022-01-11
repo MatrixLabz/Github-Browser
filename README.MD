@@ -4,12 +4,21 @@
 Pick any of your favorite github repository and create a mini android app showing its details on an android app.
 </p>
 
+
+## Screens navigation graph
+
+![summary](docs/navigation_graph.png)
+
 ## Tech stack & Open-source libraries
 
 ### Language
 
 - [Kotlin](https://kotlinlang.org)
 - [Coroutines](https://kotlinlang.org/docs/coroutines-overview.html)
+
+### Applications
+- [Android Studio](https://developer.android.com/studio)
+- [Insomnia](https://insomnia.rest/) - used for apis instead of Postman
 
 ### Android Software Development Kit
 
@@ -47,7 +56,11 @@ Pick any of your favorite github repository and create a mini android app showin
 
 
 ## How to run the application in your studio?
-    TODO
+
+- Open the project in latest android studio.
+- Wait for gradle build process.
+- Once build connect your phone/ or AVD device.
+- Run the application.
 
 ## Contact
 
