@@ -1,4 +1,4 @@
-package com.matrix.githubbrowser.data.models
+package com.matrix.githubbrowser.data.models.api
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

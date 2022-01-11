@@ -5,9 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.matrix.githubbrowser.data.models.GetRepoModel
+import com.matrix.githubbrowser.data.models.api.GetRepoModel
 import com.matrix.githubbrowser.domain.api.repository.GetRepoRepository
-import com.matrix.githubbrowser.domain.utils.Extensions
 import com.matrix.githubbrowser.domain.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

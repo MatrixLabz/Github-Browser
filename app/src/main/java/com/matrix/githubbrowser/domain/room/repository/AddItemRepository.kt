@@ -1,7 +1,7 @@
 package com.matrix.githubbrowser.domain.room.repository
 
 import androidx.lifecycle.LiveData
-import com.matrix.githubbrowser.data.models.ItemsEntity
+import com.matrix.githubbrowser.data.models.room.ItemsEntity
 import com.matrix.githubbrowser.domain.room.dao.ItemsDao
 import javax.inject.Inject
 

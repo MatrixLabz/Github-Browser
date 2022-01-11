@@ -1,4 +1,4 @@
-package com.matrix.githubbrowser.data.models
+package com.matrix.githubbrowser.data.models.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

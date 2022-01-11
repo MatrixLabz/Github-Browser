@@ -2,7 +2,7 @@ package com.matrix.githubbrowser.domain.room.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.matrix.githubbrowser.data.models.ItemsEntity
+import com.matrix.githubbrowser.data.models.room.ItemsEntity
 
 @Dao
 interface ItemsDao {

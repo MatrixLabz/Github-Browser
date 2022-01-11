@@ -11,12 +11,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.matrix.githubbrowser.R
-import com.matrix.githubbrowser.data.models.GetRepoModel
-import com.matrix.githubbrowser.data.models.ItemsEntity
-import com.matrix.githubbrowser.databinding.FragmentAddRepoBinding
 import com.matrix.githubbrowser.databinding.FragmentDetailsBinding
 import com.matrix.githubbrowser.domain.utils.Status
-import com.matrix.githubbrowser.presentation.add.AddRepoFragmentDirections
 import com.matrix.githubbrowser.presentation.add.AddRepoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

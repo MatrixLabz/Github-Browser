@@ -2,7 +2,7 @@ package com.matrix.githubbrowser.presentation.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.matrix.githubbrowser.data.models.ItemsEntity
+import com.matrix.githubbrowser.data.models.room.ItemsEntity
 import com.matrix.githubbrowser.domain.room.repository.AddItemRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

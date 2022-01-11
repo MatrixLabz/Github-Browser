@@ -2,15 +2,11 @@ package com.matrix.githubbrowser.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.matrix.githubbrowser.data.models.ItemsEntity
+import com.matrix.githubbrowser.data.models.room.ItemsEntity
 import com.matrix.githubbrowser.databinding.ListItemBinding
-import com.matrix.githubbrowser.presentation.main.MainFragment
-import com.matrix.githubbrowser.presentation.main.MainFragmentDirections
 
 class ItemsListAdapter: ListAdapter<ItemsEntity, ItemsListAdapter.ItemsViewHolder>(DiffCallBack()) {
 

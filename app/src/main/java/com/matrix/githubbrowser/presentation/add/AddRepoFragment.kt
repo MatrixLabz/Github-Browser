@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.matrix.githubbrowser.R
-import com.matrix.githubbrowser.data.models.ItemsEntity
+import com.matrix.githubbrowser.data.models.room.ItemsEntity
 import com.matrix.githubbrowser.databinding.FragmentAddRepoBinding
 import com.matrix.githubbrowser.domain.utils.Status
 import com.matrix.githubbrowser.presentation.main.MainViewModel

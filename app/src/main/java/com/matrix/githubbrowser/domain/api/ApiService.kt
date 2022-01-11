@@ -1,6 +1,6 @@
 package com.matrix.githubbrowser.domain.api
 
-import com.matrix.githubbrowser.data.models.GetRepoModel
+import com.matrix.githubbrowser.data.models.api.GetRepoModel
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Url
