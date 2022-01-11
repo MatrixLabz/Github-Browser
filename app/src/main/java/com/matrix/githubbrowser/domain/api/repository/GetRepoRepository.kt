@@ -7,6 +7,6 @@ class GetRepoRepository @Inject constructor(
     private val apiService: ApiService
 ) {
 
-    suspend fun getRepo() = apiService.getRepo()
+    suspend fun getRepo(ownerName: String, repoName: String) = apiService.getRepo("$ownerName/$repoName")
 
 }
