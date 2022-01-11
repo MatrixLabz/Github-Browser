@@ -3,6 +3,9 @@ package com.matrix.githubbrowser.presentation.details
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -16,6 +19,18 @@ import com.matrix.githubbrowser.domain.utils.Status
 import com.matrix.githubbrowser.presentation.add.AddRepoViewModel
 import com.matrix.githubbrowser.presentation.main.MainFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
+import android.content.Intent
+import android.net.Uri
+import com.matrix.githubbrowser.presentation.main.MainViewModel
+import android.content.DialogInterface
+
+import com.matrix.githubbrowser.presentation.MainActivity
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+
+
+
+
 
 @AndroidEntryPoint
 class DetailsFragment : Fragment(R.layout.fragment_details) {
@@ -25,16 +40,18 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
     private val args: DetailsFragmentArgs by navArgs()
     private val addRepoViewModel: AddRepoViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
 
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentDetailsBinding.bind(view)
+        setHasOptionsMenu(true)
 
-        binding.repoNameDetailsTv.text = args.repoName
-        binding.repoDescriptionDetailsTv.text = args.repoDescription
+        binding.repoNameDetailsTv.text = args.itemsEntity.repoName
+        binding.repoDescriptionDetailsTv.text = args.itemsEntity.repoDescription
 
-        addRepoViewModel.getRepo(args.repoOwner, args.repoName)
+        addRepoViewModel.getRepo(args.itemsEntity.repoOwner, args.itemsEntity.repoName)
 
         addRepoViewModel.res.observe(activity!!, Observer {
 
@@ -61,18 +78,56 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
         })
 
-
-
         binding.branchesBtn.setOnClickListener {
-            val action = DetailsFragmentDirections.actionDetailsFragmentToBranchFragment(args.repoName, args.repoOwner)
+            val action = DetailsFragmentDirections.actionDetailsFragmentToBranchFragment(args.itemsEntity.repoName, args.itemsEntity.repoOwner)
             findNavController().navigate(action)
         }
 
         binding.issuesBtn.setOnClickListener {
-            val action = DetailsFragmentDirections.actionDetailsFragmentToIssuesFragment(args.repoName, args.repoOwner)
+            val action = DetailsFragmentDirections.actionDetailsFragmentToIssuesFragment(args.itemsEntity.repoName, args.itemsEntity.repoOwner)
             findNavController().navigate(action)
         }
 
-
     }
+
+
+    // For adding menu to fragment
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.details_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId) {
+
+            R.id.deleteRepo -> {
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle("Delete Repository")
+                    .setMessage("Are you sure, you want to delete?.")
+                    .setPositiveButton(
+                        "Yes"
+                    ) { dialogInterface, i ->
+                        viewModel.removeItem(args.itemsEntity)
+                        val action = DetailsFragmentDirections.actionDetailsFragmentToMainFragment()
+                        findNavController().navigate(action)
+                    }
+                    .setNegativeButton(
+                        "Cancel"
+                    ) { dialogInterface, i ->
+                        dialogInterface.dismiss()
+                    }
+                    .show()
+            }
+
+            R.id.viewOnWeb -> {
+                val url = "https://github.com/${args.itemsEntity.repoOwner}/${args.itemsEntity.repoName}"
+                val i = Intent(Intent.ACTION_VIEW)
+                i.data = Uri.parse(url)
+                startActivity(i)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }

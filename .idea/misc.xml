@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/layout/list_branch.xml" value="0.29375" />
         <entry key="app/src/main/res/layout/list_issue.xml" value="0.29375" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.29375" />
+        <entry key="app/src/main/res/menu/details_menu.xml" value="0.29375" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.29375" />
       </map>
     </option>

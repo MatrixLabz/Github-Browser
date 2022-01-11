@@ -32,15 +32,6 @@
         android:name="com.matrix.githubbrowser.presentation.details.DetailsFragment"
         android:label="Details"
         tools:layout="@layout/fragment_details" >
-        <argument
-            android:name="repoName"
-            app:argType="string" />
-        <argument
-            android:name="repoDescription"
-            app:argType="string" />
-        <argument
-            android:name="repoOwner"
-            app:argType="string" />
         <action
             android:id="@+id/action_detailsFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
@@ -50,6 +41,9 @@
         <action
             android:id="@+id/action_detailsFragment_to_branchFragment"
             app:destination="@id/branchFragment" />
+        <argument
+            android:name="itemsEntity"
+            app:argType="com.matrix.githubbrowser.data.models.room.ItemsEntity" />
     </fragment>
     <fragment
         android:id="@+id/issuesFragment"

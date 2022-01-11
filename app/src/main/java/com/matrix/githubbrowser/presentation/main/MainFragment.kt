@@ -1,5 +1,8 @@
 package com.matrix.githubbrowser.presentation.main
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -68,8 +71,13 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
 
         binding.addRepoBtn2.setOnClickListener {
-            val action = MainFragmentDirections.actionMainFragmentToAddRepoFragment()
-            findNavController().navigate(action)
+
+            if (checkInternet(requireContext())) {
+                val action = MainFragmentDirections.actionMainFragmentToAddRepoFragment()
+                findNavController().navigate(action)
+            } else {
+                Toast.makeText(requireContext(), "No Internet Connection.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -83,8 +91,13 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
         itemsListAdapter.setOnItemClickListener {
             // Add logic for clicking a repository
-            val action = MainFragmentDirections.actionMainFragmentToDetailsFragment(it.repoName, it.repoDescription, it.repoOwner)
-            findNavController().navigate(action)
+            if (checkInternet(requireContext())) {
+                val action = MainFragmentDirections.actionMainFragmentToDetailsFragment(it)
+                findNavController().navigate(action)
+            } else {
+                Toast.makeText(requireContext(), "No Internet Connection.", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 
@@ -92,6 +105,12 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun checkInternet(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
+        return activeNetwork?.isConnectedOrConnecting == true
     }
 
 
@@ -103,10 +122,14 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.addRepoBtn1 -> {
-                val action = MainFragmentDirections.actionMainFragmentToAddRepoFragment()
-                findNavController().navigate(action)
+                if (checkInternet(requireContext())) {
+                    val action = MainFragmentDirections.actionMainFragmentToAddRepoFragment()
+                    findNavController().navigate(action)
+                } else {
+                    Toast.makeText(requireContext(), "No Internet Connection.", Toast.LENGTH_SHORT).show()
+                }
             }
         }
         return super.onOptionsItemSelected(item)
