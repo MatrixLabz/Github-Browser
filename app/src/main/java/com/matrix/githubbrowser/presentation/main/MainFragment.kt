@@ -1,9 +1,11 @@
 package com.matrix.githubbrowser.presentation.main
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.ListAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -13,6 +15,16 @@ import com.matrix.githubbrowser.R
 import com.matrix.githubbrowser.databinding.FragmentMainBinding
 import com.matrix.githubbrowser.presentation.adapters.ItemsListAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import com.google.android.material.snackbar.Snackbar
+
+import androidx.recyclerview.widget.RecyclerView
+
+import androidx.annotation.NonNull
+
+import androidx.recyclerview.widget.ItemTouchHelper
+
+
+
 
 
 @AndroidEntryPoint
@@ -47,6 +59,22 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         })
 
 
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                viewModel.removeItem(itemsListAdapter.getItemAt(viewHolder.adapterPosition))
+                Toast.makeText(requireContext(), "Repository deleted.", Toast.LENGTH_SHORT).show()
+            }
+        }).attachToRecyclerView(binding.rvItems)
+
+
         binding.addRepoBtn2.setOnClickListener {
             val action = MainFragmentDirections.actionMainFragmentToAddRepoFragment()
             findNavController().navigate(action)
@@ -63,9 +91,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
         itemsListAdapter.setOnItemClickListener {
             // Add logic for clicking a repository
-
-//            val action = MainFragmentDirections.actionMainFragmentToAddRepoFragment()
-//            findNavController().navigate(action)
+            val action = MainFragmentDirections.actionMainFragmentToDetailsFragment(it.repoName, it.repoDescription)
+            findNavController().navigate(action)
         }
     }
 

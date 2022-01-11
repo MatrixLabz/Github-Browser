@@ -29,12 +29,12 @@ Pick any of your favorite github repository and create a mini android app showin
 - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) -  is designed to store
   and manage UI-related data in a lifecycle conscious way.
 - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - an observable data holder class.
+- [ViewBinding](https://developer.android.com/topic/libraries/view-binding)
 
 ### Open-source Libraries
 
 - [Dagger Hilt](https://dagger.dev/hilt/) - a dependency injection library for Android
-- [ViewBindingDelegate](https://github.com/kirich1409/ViewBindingPropertyDelegate) - a property
-  delegate for [ViewBinding](https://developer.android.com/topic/libraries/view-binding)
+- [Retrofit](https://square.github.io/retrofit/) - a type-safe HTTP client for Android and Java
 
 ### Test Libraries
 

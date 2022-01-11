@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainFragment_to_addRepoFragment"
             app:destination="@id/addRepoFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addRepoFragment"
@@ -23,5 +26,17 @@
         <action
             android:id="@+id/action_addRepoFragment_to_mainFragment2"
             app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.matrix.githubbrowser.presentation.details.DetailsFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="repoName"
+            app:argType="string" />
+        <argument
+            android:name="repoDescription"
+            app:argType="string" />
     </fragment>
 </navigation>
