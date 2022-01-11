@@ -7,6 +7,13 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.matrix.githubbrowser.data.models.room.ItemsEntity
 import com.matrix.githubbrowser.databinding.ListItemBinding
+import android.content.Intent
+import androidx.core.content.ContextCompat
+
+import androidx.core.content.ContextCompat.startActivity
+import com.matrix.githubbrowser.BuildConfig
+import java.lang.Exception
+
 
 class ItemsListAdapter: ListAdapter<ItemsEntity, ItemsListAdapter.ItemsViewHolder>(DiffCallBack()) {
 
@@ -15,6 +22,11 @@ class ItemsListAdapter: ListAdapter<ItemsEntity, ItemsListAdapter.ItemsViewHolde
         init {
             binding.root.setOnClickListener {
                 onItemClickListener?.let {
+                    it(getItem(adapterPosition))
+                }
+            }
+            binding.shareRepo.setOnClickListener {
+                onShareClickListener?.let {
                     it(getItem(adapterPosition))
                 }
             }
@@ -42,9 +54,14 @@ class ItemsListAdapter: ListAdapter<ItemsEntity, ItemsListAdapter.ItemsViewHolde
     }
 
     private var onItemClickListener: ((ItemsEntity) -> Unit)? = null
+    private var onShareClickListener: ((ItemsEntity) -> Unit)? = null
 
     fun setOnItemClickListener(listener: (ItemsEntity) -> Unit) {
-        onItemClickListener= listener
+        onItemClickListener = listener
+    }
+
+    fun setOnShareClickListener(listener: (ItemsEntity) -> Unit) {
+        onShareClickListener = listener
     }
 
     fun getItemAt(position: Int): ItemsEntity = getItem(position)

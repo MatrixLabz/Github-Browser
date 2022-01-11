@@ -1,6 +1,7 @@
 package com.matrix.githubbrowser.presentation.main
 
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -16,10 +18,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.matrix.githubbrowser.BuildConfig
 import com.matrix.githubbrowser.R
 import com.matrix.githubbrowser.databinding.FragmentMainBinding
 import com.matrix.githubbrowser.presentation.adapters.ItemsListAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import java.lang.Exception
 
 
 @AndroidEntryPoint
@@ -76,7 +80,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 val action = MainFragmentDirections.actionMainFragmentToAddRepoFragment()
                 findNavController().navigate(action)
             } else {
-                Toast.makeText(requireContext(), "No Internet Connection.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "No Internet Connection.", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
@@ -99,6 +104,24 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                     .show()
             }
         }
+
+        itemsListAdapter.setOnShareClickListener {
+            try {
+                val shareIntent = Intent(Intent.ACTION_SEND)
+                shareIntent.type = "text/plain"
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Github Browser")
+                var shareMessage = "\nLet me recommend you this application\n\n"
+                shareMessage =
+                    """
+                            ${shareMessage}https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}
+                            """.trimIndent()
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
+                this.startActivity(Intent.createChooser(shareIntent, "choose one"))
+            } catch (e: Exception) {
+                //e.toString();
+            }
+        }
+
     }
 
 
@@ -128,7 +151,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                     val action = MainFragmentDirections.actionMainFragmentToAddRepoFragment()
                     findNavController().navigate(action)
                 } else {
-                    Toast.makeText(requireContext(), "No Internet Connection.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "No Internet Connection.", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
         }
