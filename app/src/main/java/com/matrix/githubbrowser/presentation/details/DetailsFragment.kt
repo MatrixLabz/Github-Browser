@@ -14,6 +14,7 @@ import com.matrix.githubbrowser.R
 import com.matrix.githubbrowser.databinding.FragmentDetailsBinding
 import com.matrix.githubbrowser.domain.utils.Status
 import com.matrix.githubbrowser.presentation.add.AddRepoViewModel
+import com.matrix.githubbrowser.presentation.main.MainFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -67,7 +68,8 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
         }
 
         binding.issuesBtn.setOnClickListener {
-
+            val action = DetailsFragmentDirections.actionDetailsFragmentToIssuesFragment(args.repoName, args.repoOwner)
+            findNavController().navigate(action)
         }
 
 

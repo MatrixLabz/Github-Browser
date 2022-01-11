@@ -1,7 +1,7 @@
 package com.matrix.githubbrowser.di
 
 import com.matrix.githubbrowser.domain.api.ApiService
-import com.matrix.githubbrowser.domain.api.repository.GetRepoRepository
+import com.matrix.githubbrowser.domain.api.repository.RetrofitRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -48,5 +48,5 @@ object ApiModule {
 
     @Singleton
     @Provides
-    fun providesRepository(apiService: ApiService) = GetRepoRepository(apiService)
+    fun providesRepository(apiService: ApiService) = RetrofitRepository(apiService)
 }

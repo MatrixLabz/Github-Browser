@@ -44,5 +44,19 @@
         <action
             android:id="@+id/action_detailsFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_issuesFragment"
+            app:destination="@id/issuesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/issuesFragment"
+        android:name="com.matrix.githubbrowser.presentation.details.issues.IssuesFragment"
+        android:label="Issues"
+        tools:layout="@layout/fragment_issues" >
+        <argument
+            android:name="repoName"
+            app:argType="string" />
+        <argument android:name="repoOwner"
+            app:argType="string" />
     </fragment>
 </navigation>
