@@ -9,5 +9,8 @@ class RetrofitRepository @Inject constructor(
 
     suspend fun getRepo(ownerName: String, repoName: String) = apiService.getRepo("$ownerName/$repoName")
 
-    suspend fun getIssues(ownerName: String, repoName: String) = apiService.getIssues("$ownerName/$repoName/issues?state=open")
+    suspend fun getIssue(ownerName: String, repoName: String) = apiService.getIssues("$ownerName/$repoName/issues?state=open")
+
+    suspend fun getBranch(ownerName: String, repoName: String) = apiService.getBranches("$ownerName/$repoName/branches")
+
 }

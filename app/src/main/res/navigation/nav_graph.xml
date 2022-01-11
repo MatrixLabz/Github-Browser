@@ -47,12 +47,26 @@
         <action
             android:id="@+id/action_detailsFragment_to_issuesFragment"
             app:destination="@id/issuesFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_branchFragment"
+            app:destination="@id/branchFragment" />
     </fragment>
     <fragment
         android:id="@+id/issuesFragment"
         android:name="com.matrix.githubbrowser.presentation.details.issues.IssuesFragment"
         android:label="Issues"
         tools:layout="@layout/fragment_issues" >
+        <argument
+            android:name="repoName"
+            app:argType="string" />
+        <argument android:name="repoOwner"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/branchFragment"
+        android:name="com.matrix.githubbrowser.presentation.details.branches.BranchFragment"
+        android:label="fragment_branch"
+        tools:layout="@layout/fragment_branch" >
         <argument
             android:name="repoName"
             app:argType="string" />

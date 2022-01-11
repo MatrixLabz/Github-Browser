@@ -1,5 +1,11 @@
 package com.matrix.githubbrowser.data.models.api
 
-class GetBranchesModel {
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 
-}
+data class GetBranchesModel(
+
+    @SerializedName("name")
+    @Expose
+    val branchName: String
+)

@@ -38,7 +38,6 @@ class IssueListAdapter: RecyclerView.Adapter<IssueListAdapter.MainViewHolder>() 
     }
 
     override fun getItemCount(): Int {
-        Log.d("TAG", "onViewCreated: ${issues.size}")
         return issues.size
     }
 }

@@ -64,7 +64,8 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
 
         binding.branchesBtn.setOnClickListener {
-
+            val action = DetailsFragmentDirections.actionDetailsFragmentToBranchFragment(args.repoName, args.repoOwner)
+            findNavController().navigate(action)
         }
 
         binding.issuesBtn.setOnClickListener {

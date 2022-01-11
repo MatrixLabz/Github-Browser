@@ -1,5 +1,6 @@
 package com.matrix.githubbrowser.domain.api
 
+import com.matrix.githubbrowser.data.models.api.GetBranchesModel
 import com.matrix.githubbrowser.data.models.api.GetIssuesModel
 import com.matrix.githubbrowser.data.models.api.GetRepoModel
 import retrofit2.Response
@@ -15,4 +16,6 @@ interface ApiService {
     @GET
     suspend fun getIssues(@Url url: String): Response<MutableList<GetIssuesModel>>
 
+    @GET
+    suspend fun getBranches(@Url url: String): Response<MutableList<GetBranchesModel>>
 }
